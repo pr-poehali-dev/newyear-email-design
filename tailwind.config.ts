@@ -96,8 +96,17 @@ export default {
 					'50%': { opacity: '0.8' }
 				},
 				'glow': {
-					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--fireplace-glow))' },
-					'50%': { boxShadow: '0 0 40px hsl(var(--fireplace-glow)), 0 0 60px hsl(var(--fireplace-light))' }
+					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--aurora-green))' },
+					'50%': { boxShadow: '0 0 40px hsl(var(--aurora-blue)), 0 0 60px hsl(var(--aurora-purple))' }
+				},
+				'aurora-wave': {
+					'0%': { transform: 'translateX(-100%) skewX(-15deg)', opacity: '0' },
+					'50%': { opacity: '0.8' },
+					'100%': { transform: 'translateX(200%) skewX(-15deg)', opacity: '0' }
+				},
+				'twinkle': {
+					'0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+					'50%': { opacity: '1', transform: 'scale(1.2)' }
 				},
 				'fade-in': {
 					'0%': { opacity: '0', transform: 'translateY(20px)' },
@@ -110,7 +119,9 @@ export default {
 				'snowfall': 'snowfall linear infinite',
 				'flicker': 'flicker 2s ease-in-out infinite',
 				'glow': 'glow 3s ease-in-out infinite',
-				'fade-in': 'fade-in 0.6s ease-out'
+				'fade-in': 'fade-in 0.6s ease-out',
+				'aurora-wave': 'aurora-wave 8s ease-in-out infinite',
+				'twinkle': 'twinkle 3s ease-in-out infinite'
 			}
 		}
 	},
