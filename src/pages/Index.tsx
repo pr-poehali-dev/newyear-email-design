@@ -17,37 +17,40 @@ const Snowflake = ({ delay, duration, left }: { delay: number; duration: number;
   </div>
 );
 
-const AuroraBorealis = () => {
-  const [stars] = useState(() =>
-    Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 60}%`,
-      delay: Math.random() * 3,
-      duration: 2 + Math.random() * 2,
-    }))
-  );
-
+const SnowmanScene = () => {
   return (
-    <div className="relative w-full h-64 bg-gradient-to-b from-[#0a0e27] via-[#1a1f3a] to-[#0a0e27] rounded-3xl overflow-hidden">
-      {stars.map((star) => (
-        <div
-          key={star.id}
-          className="absolute w-1 h-1 bg-white rounded-full animate-twinkle"
-          style={{
-            left: star.left,
-            top: star.top,
-            animationDelay: `${star.delay}s`,
-            animationDuration: `${star.duration}s`,
-          }}
-        />
-      ))}
+    <div className="relative w-full h-80 bg-gradient-to-b from-[#87CEEB] to-[#E0F6FF] rounded-3xl overflow-hidden flex items-end justify-center pb-8">
+      <div className="absolute top-4 left-8 w-16 h-16 bg-white/60 rounded-full blur-sm" />
+      <div className="absolute top-8 right-12 w-12 h-12 bg-white/40 rounded-full blur-sm" />
+      <div className="absolute top-16 left-1/4 w-10 h-10 bg-white/50 rounded-full blur-sm" />
       
-      <div className="absolute inset-0 bg-gradient-to-r from-[#00ff87]/30 via-[#60efff]/30 to-[#a78bfa]/30 animate-aurora-wave" style={{ animationDuration: '12s' }} />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#a78bfa]/40 via-[#ec4899]/40 to-[#00ff87]/40 animate-aurora-wave" style={{ animationDelay: '4s', animationDuration: '15s' }} />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#60efff]/30 via-[#00ff87]/30 to-[#ec4899]/30 animate-aurora-wave" style={{ animationDelay: '8s', animationDuration: '18s' }} />
-      
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e27] via-transparent to-transparent" />
+      <div className="relative flex flex-col items-center animate-bounce-gentle">
+        <div className="relative mb-[-12px] z-10">
+          <div className="w-24 h-24 bg-white rounded-full shadow-lg border-4 border-[#E0F6FF]" />
+          <div className="absolute top-6 left-6 w-3 h-3 bg-black rounded-full" />
+          <div className="absolute top-6 right-6 w-3 h-3 bg-black rounded-full" />
+          <div className="absolute top-10 left-1/2 -translate-x-1/2 w-4 h-2 bg-[#FF6347] rounded-full" />
+          <div className="absolute top-12 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[16px] border-t-[#FF8C00]" />
+          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-16 h-8 bg-black rounded-t-full" />
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-3 bg-black rounded-full" />
+        </div>
+        
+        <div className="relative mb-[-12px] z-20">
+          <div className="w-32 h-32 bg-white rounded-full shadow-xl border-4 border-[#E0F6FF]" />
+          <div className="absolute top-1/2 left-2 w-2 h-2 bg-black rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-2 h-2 bg-black rounded-full" />
+          <div className="absolute top-1/2 right-2 w-2 h-2 bg-black rounded-full" />
+          <div className="absolute top-4 -left-8 w-16 h-2 bg-[#8B4513] rounded-full -rotate-45 origin-right" />
+          <div className="absolute top-4 -right-8 w-16 h-2 bg-[#8B4513] rounded-full rotate-45 origin-left" />
+        </div>
+        
+        <div className="relative z-30">
+          <div className="w-40 h-40 bg-white rounded-full shadow-2xl border-4 border-[#E0F6FF]" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full px-4">
+            <div className="h-8 bg-gradient-to-r from-[#DC143C] to-[#FF0000] rounded-lg animate-sway" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -63,7 +66,7 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a0e27] via-[#1a1f3a] to-[#0f1729] relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#87CEEB] via-[#B0E0E6] to-[#E0F6FF] relative overflow-hidden">
       <div className="fixed inset-0 pointer-events-none z-50">
         {snowflakes.map((flake) => (
           <div
@@ -82,30 +85,30 @@ const Index = () => {
 
       <div className="container mx-auto px-4 py-8 relative z-10">
         <header className="text-center mb-12 animate-fade-in">
-          <h1 className="text-6xl font-bold bg-gradient-to-r from-[#00ff87] via-[#60efff] to-[#a78bfa] bg-clip-text text-transparent mb-4">
-            ✨ С Новым Годом! ✨
+          <h1 className="text-6xl font-bold text-[#2C5F8D] mb-4">
+            ⛄ С Новым Годом! ⛄
           </h1>
-          <p className="text-xl text-[#60efff]">Пусть в новом году сбудутся все мечты</p>
+          <p className="text-xl text-[#4A90A4]">Пусть в новом году сбудутся все мечты</p>
         </header>
 
         <div className="max-w-4xl mx-auto mb-12">
-          <Card className="p-6 bg-[#1a1f3a]/80 backdrop-blur-sm shadow-2xl border-[#00ff87]/20">
-            <AuroraBorealis />
+          <Card className="p-6 bg-white/95 backdrop-blur-sm shadow-2xl border-[#4A90A4]/30">
+            <SnowmanScene />
             <div className="mt-6 space-y-4">
-              <h2 className="text-3xl font-semibold text-center bg-gradient-to-r from-[#60efff] to-[#a78bfa] bg-clip-text text-transparent">
-                Северное сияние новогодних поздравлений
+              <h2 className="text-3xl font-semibold text-center text-[#2C5F8D]">
+                Весёлый снеговик новогодних поздравлений
               </h2>
             </div>
           </Card>
         </div>
 
         <section className="mb-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          <Card className="p-8 bg-[#1a1f3a]/70 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-shadow border-[#00ff87]/20">
+          <Card className="p-8 bg-white/90 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-shadow border-[#4A90A4]/20">
             <div className="flex items-center gap-3 mb-6">
-              <Icon name="Sparkles" className="text-[#00ff87]" size={32} />
-              <h2 className="text-4xl font-semibold text-[#60efff]">Поздравление</h2>
+              <Icon name="Sparkles" className="text-[#FF8C00]" size={32} />
+              <h2 className="text-4xl font-semibold text-[#2C5F8D]">Поздравление</h2>
             </div>
-            <p className="text-lg leading-relaxed text-[#c7d2fe]">
+            <p className="text-lg leading-relaxed text-gray-700">
               Дорогие друзья! От всего сердца поздравляю вас с наступающим Новым Годом! 
               Пусть этот праздник принесет в ваш дом тепло, уют и радость. Желаю вам крепкого 
               здоровья, семейного благополучия и исполнения самых заветных желаний. Пусть каждый 
@@ -115,67 +118,67 @@ const Index = () => {
         </section>
 
         <section className="mb-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <Card className="p-8 bg-[#1a1f3a]/70 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-shadow border-[#60efff]/20">
+          <Card className="p-8 bg-white/90 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-shadow border-[#4A90A4]/20">
             <div className="flex items-center gap-3 mb-6">
-              <Icon name="Star" className="text-[#a78bfa]" size={32} />
-              <h2 className="text-4xl font-semibold text-[#60efff]">Пожелания</h2>
+              <Icon name="Star" className="text-[#4A90A4]" size={32} />
+              <h2 className="text-4xl font-semibold text-[#2C5F8D]">Пожелания</h2>
             </div>
             <ul className="space-y-4 text-lg">
               <li className="flex items-start gap-3">
                 <span className="text-2xl">✨</span>
-                <span className="text-[#c7d2fe]">Крепкого здоровья и неиссякаемой энергии</span>
+                <span className="text-gray-700">Крепкого здоровья и неиссякаемой энергии</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-2xl">💫</span>
-                <span className="text-[#c7d2fe]">Успехов во всех начинаниях и достижении целей</span>
+                <span className="text-gray-700">Успехов во всех начинаниях и достижении целей</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-2xl">🌟</span>
-                <span className="text-[#c7d2fe]">Радости, любви и понимания в семье</span>
+                <span className="text-gray-700">Радости, любви и понимания в семье</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-2xl">💖</span>
-                <span className="text-[#c7d2fe]">Ярких впечатлений и незабываемых моментов</span>
+                <span className="text-gray-700">Ярких впечатлений и незабываемых моментов</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-2xl">🎁</span>
-                <span className="text-[#c7d2fe]">Благополучия и процветания в новом году</span>
+                <span className="text-gray-700">Благополучия и процветания в новом году</span>
               </li>
             </ul>
           </Card>
         </section>
 
         <section className="mb-16 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <Card className="p-8 bg-[#1a1f3a]/70 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-shadow border-[#a78bfa]/20">
+          <Card className="p-8 bg-white/90 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-shadow border-[#4A90A4]/20">
             <div className="flex items-center gap-3 mb-6">
-              <Icon name="Calendar" className="text-[#00ff87]" size={32} />
-              <h2 className="text-4xl font-semibold text-[#60efff]">Итоги года</h2>
+              <Icon name="Calendar" className="text-[#FF8C00]" size={32} />
+              <h2 className="text-4xl font-semibold text-[#2C5F8D]">Итоги года</h2>
             </div>
-            <div className="space-y-4 text-lg text-[#c7d2fe]">
+            <div className="space-y-4 text-lg text-gray-700">
               <p>
                 Уходящий год был наполнен яркими событиями и важными достижениями. Мы прошли 
                 большой путь, преодолели трудности и достигли новых высот.
               </p>
               <div className="grid md:grid-cols-2 gap-4 mt-6">
-                <div className="p-4 bg-gradient-to-br from-[#00ff87]/20 to-[#00ff87]/10 rounded-lg border border-[#00ff87]/30">
+                <div className="p-4 bg-gradient-to-br from-[#E3F2FD] to-[#BBDEFB] rounded-lg">
                   <div className="text-3xl mb-2">🏆</div>
-                  <h3 className="font-semibold text-[#00ff87] mb-2">Достижения</h3>
-                  <p className="text-sm text-[#c7d2fe]">Реализовано множество проектов и достигнуты поставленные цели</p>
+                  <h3 className="font-semibold text-[#2C5F8D] mb-2">Достижения</h3>
+                  <p className="text-sm text-gray-700">Реализовано множество проектов и достигнуты поставленные цели</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-[#60efff]/20 to-[#60efff]/10 rounded-lg border border-[#60efff]/30">
+                <div className="p-4 bg-gradient-to-br from-[#FFF3E0] to-[#FFE0B2] rounded-lg">
                   <div className="text-3xl mb-2">🎯</div>
-                  <h3 className="font-semibold text-[#60efff] mb-2">Новые навыки</h3>
-                  <p className="text-sm text-[#c7d2fe]">Освоены новые знания и умения, которые пригодятся в будущем</p>
+                  <h3 className="font-semibold text-[#FF8C00] mb-2">Новые навыки</h3>
+                  <p className="text-sm text-gray-700">Освоены новые знания и умения, которые пригодятся в будущем</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-[#a78bfa]/20 to-[#a78bfa]/10 rounded-lg border border-[#a78bfa]/30">
+                <div className="p-4 bg-gradient-to-br from-[#FCE4EC] to-[#F8BBD0] rounded-lg">
                   <div className="text-3xl mb-2">❤️</div>
-                  <h3 className="font-semibold text-[#a78bfa] mb-2">Отношения</h3>
-                  <p className="text-sm text-[#c7d2fe]">Укрепили связи с близкими и завели новых друзей</p>
+                  <h3 className="font-semibold text-[#C2185B] mb-2">Отношения</h3>
+                  <p className="text-sm text-gray-700">Укрепили связи с близкими и завели новых друзей</p>
                 </div>
-                <div className="p-4 bg-gradient-to-br from-[#ec4899]/20 to-[#ec4899]/10 rounded-lg border border-[#ec4899]/30">
+                <div className="p-4 bg-gradient-to-br from-[#F1F8E9] to-[#DCEDC8] rounded-lg">
                   <div className="text-3xl mb-2">🌱</div>
-                  <h3 className="font-semibold text-[#ec4899] mb-2">Развитие</h3>
-                  <p className="text-sm text-[#c7d2fe]">Работали над собой и становились лучше с каждым днем</p>
+                  <h3 className="font-semibold text-[#558B2F] mb-2">Развитие</h3>
+                  <p className="text-sm text-gray-700">Работали над собой и становились лучше с каждым днем</p>
                 </div>
               </div>
             </div>
